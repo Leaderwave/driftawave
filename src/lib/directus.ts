@@ -22,10 +22,11 @@ interface DirectusSchema {
   blog_posts: BlogPost[];
 }
 
+// Directus URL with fallback for build time
+const DIRECTUS_URL = process.env.NEXT_PUBLIC_DIRECTUS_URL || 'https://driftawave-directus.onrender.com';
+
 // Create Directus client
-const directus = createDirectus<DirectusSchema>(
-  process.env.NEXT_PUBLIC_DIRECTUS_URL!
-).with(rest());
+const directus = createDirectus<DirectusSchema>(DIRECTUS_URL).with(rest());
 
 // Export client and helpers
 export { directus, readItems, readItem };

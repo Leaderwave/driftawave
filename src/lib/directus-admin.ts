@@ -5,8 +5,11 @@
 
 import { createDirectus, rest, authentication, login, refresh, readMe, createItem, updateItem, deleteItem, uploadFiles } from '@directus/sdk';
 
+// Directus URL with fallback for build time
+const DIRECTUS_URL = process.env.NEXT_PUBLIC_DIRECTUS_URL || 'https://driftawave-directus.onrender.com';
+
 // Initialize Directus client with authentication
-const directusAdmin = createDirectus(process.env.NEXT_PUBLIC_DIRECTUS_URL as string)
+const directusAdmin = createDirectus(DIRECTUS_URL)
   .with(rest())
   .with(authentication('cookie', { credentials: 'include' }));
 

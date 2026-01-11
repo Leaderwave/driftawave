@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createDirectus, rest, authentication } from '@directus/sdk';
 
-const directus = createDirectus(process.env.NEXT_PUBLIC_DIRECTUS_URL as string)
-  .with(rest())
-  .with(authentication('json'));
+// Directus URL with fallback
+const DIRECTUS_URL = process.env.NEXT_PUBLIC_DIRECTUS_URL || 'https://driftawave-directus.onrender.com';
 
 export async function POST(request: NextRequest) {
   try {
@@ -18,7 +16,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Attempt login with Directus using direct API call
-    const response = await fetch(`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/auth/login`, {
+    const response = await fetch(`${DIRECTUS_URL}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
