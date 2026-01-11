@@ -25,15 +25,7 @@ export const HeroSection = () => {
       <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4 pt-24 md:pt-28 pb-32">
         {/* Main Headline */}
         <h1 className="font-display text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-white mb-8 max-w-5xl leading-[1.1] drop-shadow-lg">
-          Team Retreats, Workations{" "}
-          <span className="relative inline-block">
-            & EPIC
-            {/* Elegant underline accent */}
-            <span
-              className="absolute -bottom-2 left-0 w-full h-1 bg-sunset-orange rounded-full"
-            />
-          </span>{" "}
-          Offsites
+          Team Retreats, Workations & EPIC Offsites
         </h1>
 
         {/* Subheadline - frosted glass effect */}
