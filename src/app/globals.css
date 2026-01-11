@@ -1,0 +1,614 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Manrope:wght@300;400;500;600&display=swap');
+
+/* ============================================
+   DRIFTAWAVE BRAND DESIGN SYSTEM
+   "An Untamed Sunset" - Warm Travel Editorial
+   ============================================ */
+
+/* Brand Fonts */
+@font-face {
+  font-family: 'Mistica';
+  src: url('/font/Mistica.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('/font/HelveticaNeueLight.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('/font/HelveticaNeueLightItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('/font/HelveticaNeueRoman.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('/font/HelveticaNeueMedium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('/font/HelveticaNeueBold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   CSS CUSTOM PROPERTIES - BRAND TOKENS
+   ============================================ */
+:root {
+  /* Driftawave Brand Colors - An Untamed Sunset */
+  --sunset-orange: #F06025;
+  --sunset-rust: #C24A2F;
+  --sunset-gold: #FFB122;
+  --sunset-sand: #FDCD82;
+  --sunset-cream: #FFF8F0;
+  --sunset-black: #000000;
+
+  /* Semantic Colors */
+  --background: #FFFFFF;
+  --foreground: #000000;
+  --card: #FFFFFF;
+  --card-foreground: #000000;
+  --popover: #FFFFFF;
+  --popover-foreground: #000000;
+  --primary: #F06025;
+  --primary-foreground: #FFFFFF;
+  --secondary: #FFF8F0;
+  --secondary-foreground: #000000;
+  --muted: #F5F0EB;
+  --muted-foreground: #555555;
+  --accent: #FDCD82;
+  --accent-foreground: #000000;
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+  --border: #E5E5E5;
+  --input: #E5E5E5;
+  --ring: #F06025;
+
+  /* Typography */
+  --font-display: 'Mistica', serif;
+  --font-body: 'Helvetica Neue', 'Manrope', sans-serif;
+  --font-sans: 'Helvetica Neue', 'Manrope', sans-serif;
+  --font-serif: 'Mistica', 'Fraunces', serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* Spacing & Sizing */
+  --radius: 0.625rem;
+  --radius-brand: 32px;
+  --spacing: 0.25rem;
+
+  /* Shadows - Warm tinted */
+  --shadow-color: 194 74% 47%;
+  --shadow-2xs: 0 1px 2px hsl(var(--shadow-color) / 0.03);
+  --shadow-xs: 0 1px 3px hsl(var(--shadow-color) / 0.05);
+  --shadow-sm: 0 2px 4px hsl(var(--shadow-color) / 0.06);
+  --shadow: 0 4px 6px -1px hsl(var(--shadow-color) / 0.07), 0 2px 4px -1px hsl(var(--shadow-color) / 0.05);
+  --shadow-md: 0 6px 12px -2px hsl(var(--shadow-color) / 0.08), 0 3px 6px -2px hsl(var(--shadow-color) / 0.05);
+  --shadow-lg: 0 10px 20px -3px hsl(var(--shadow-color) / 0.1), 0 4px 8px -2px hsl(var(--shadow-color) / 0.05);
+  --shadow-xl: 0 20px 40px -4px hsl(var(--shadow-color) / 0.15), 0 8px 16px -4px hsl(var(--shadow-color) / 0.08);
+  --shadow-2xl: 0 25px 50px -6px hsl(var(--shadow-color) / 0.25);
+
+  /* Brand Shadow - Orange tinted for cards */
+  --shadow-brand: 0 4px 20px -2px rgba(240, 96, 37, 0.15);
+}
+
+/* ============================================
+   BASE LAYER - GLOBAL STYLES
+   ============================================ */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  /* Typography Scale */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-tight;
+  }
+
+  p, span, li {
+    font-family: var(--font-body);
+  }
+}
+
+/* ============================================
+   COMPONENT LAYER - BRAND COMPONENTS
+   ============================================ */
+@layer components {
+  /* ---- Section Backgrounds with Texture ---- */
+  .section-warm {
+    @apply relative;
+    background: linear-gradient(180deg, #FFFFFF 0%, #FFF8F0 50%, #FFFBF5 100%);
+  }
+
+  .section-sand {
+    @apply relative;
+    background: linear-gradient(180deg, #FFF8F0 0%, rgba(253, 205, 130, 0.15) 50%, #FFF8F0 100%);
+  }
+
+  .section-cream {
+    background: #FFF8F0;
+  }
+
+  /* Noise texture overlay */
+  .texture-noise::before {
+    content: '';
+    @apply absolute inset-0 pointer-events-none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    mix-blend-mode: multiply;
+  }
+
+  /* Grain overlay for images */
+  .texture-grain::after {
+    content: '';
+    @apply absolute inset-0 pointer-events-none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E");
+    opacity: 0.08;
+    mix-blend-mode: overlay;
+  }
+
+  /* ---- Orange Accent Lines (Brand Signature) ---- */
+  .accent-line-top {
+    @apply relative;
+  }
+  .accent-line-top::before {
+    content: '';
+    @apply absolute top-0 left-1/2 -translate-x-1/2;
+    width: 120px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--sunset-orange), transparent);
+  }
+
+  .accent-line-left {
+    @apply relative;
+  }
+  .accent-line-left::before {
+    content: '';
+    @apply absolute left-0 top-1/2 -translate-y-1/2;
+    width: 3px;
+    height: 80px;
+    background: linear-gradient(180deg, transparent, var(--sunset-orange), transparent);
+  }
+
+  .accent-line-bottom {
+    @apply relative;
+  }
+  .accent-line-bottom::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 -translate-x-1/2;
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--sunset-orange), transparent);
+  }
+
+  /* Full-width orange divider */
+  .divider-orange {
+    @apply w-full h-px;
+    background: linear-gradient(90deg, transparent 0%, rgba(240, 96, 37, 0.3) 20%, var(--sunset-orange) 50%, rgba(240, 96, 37, 0.3) 80%, transparent 100%);
+  }
+
+  /* ---- Brand Cards ---- */
+  .card-brand {
+    @apply relative overflow-hidden;
+    border-radius: var(--radius-brand);
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: var(--shadow-brand);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-brand:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px -4px rgba(240, 96, 37, 0.2);
+    border-color: rgba(240, 96, 37, 0.2);
+  }
+
+  .card-brand-outline {
+    @apply relative overflow-hidden;
+    border-radius: var(--radius-brand);
+    background: transparent;
+    border: 2px solid var(--sunset-orange);
+    transition: all 0.3s ease;
+  }
+
+  .card-brand-outline:hover {
+    background: rgba(240, 96, 37, 0.05);
+  }
+
+  /* ---- Section Connectors (Flow Elements) ---- */
+  .flow-connector {
+    @apply relative;
+  }
+
+  .flow-connector::after {
+    content: '';
+    @apply absolute -bottom-12 left-1/2 -translate-x-1/2;
+    width: 2px;
+    height: 48px;
+    background: linear-gradient(180deg, var(--sunset-orange) 0%, transparent 100%);
+  }
+
+  /* Curved section transition */
+  .section-curve-top {
+    @apply relative;
+  }
+  .section-curve-top::before {
+    content: '';
+    @apply absolute -top-16 left-0 right-0;
+    height: 64px;
+    background: inherit;
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  }
+
+  .section-curve-bottom {
+    @apply relative;
+  }
+  .section-curve-bottom::after {
+    content: '';
+    @apply absolute -bottom-16 left-0 right-0;
+    height: 64px;
+    background: inherit;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  }
+
+  /* ---- Buttons ---- */
+  .btn-brand {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4;
+    border-radius: var(--radius-brand);
+    background: var(--sunset-orange);
+    color: white;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 14px -2px rgba(240, 96, 37, 0.4);
+  }
+
+  .btn-brand:hover {
+    background: var(--sunset-rust);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px -2px rgba(194, 74, 47, 0.5);
+  }
+
+  .btn-brand-outline {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4;
+    border-radius: var(--radius-brand);
+    background: transparent;
+    color: var(--sunset-orange);
+    border: 2px solid var(--sunset-orange);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .btn-brand-outline:hover {
+    background: var(--sunset-orange);
+    color: white;
+  }
+
+  /* ---- Typography Styles ---- */
+  .heading-display {
+    font-family: var(--font-display);
+    @apply tracking-tight leading-none;
+  }
+
+  .heading-section {
+    font-family: var(--font-display);
+    @apply text-4xl md:text-5xl lg:text-6xl tracking-tight;
+    color: var(--sunset-black);
+  }
+
+  .text-body {
+    font-family: var(--font-body);
+    @apply font-light leading-relaxed;
+    color: #555555;
+  }
+
+  .text-accent {
+    color: var(--sunset-orange);
+  }
+
+  /* ---- Image Treatments ---- */
+  .img-brand {
+    border-radius: var(--radius-brand);
+    @apply overflow-hidden;
+  }
+
+  .img-brand-frame {
+    @apply relative;
+    border-radius: var(--radius-brand);
+    padding: 4px;
+    background: linear-gradient(135deg, var(--sunset-orange) 0%, var(--sunset-gold) 100%);
+  }
+
+  .img-brand-frame > * {
+    border-radius: calc(var(--radius-brand) - 4px);
+  }
+
+  /* Image with orange corner accent */
+  .img-corner-accent {
+    @apply relative;
+  }
+  .img-corner-accent::before {
+    content: '';
+    @apply absolute -top-2 -left-2 w-12 h-12;
+    border-left: 3px solid var(--sunset-orange);
+    border-top: 3px solid var(--sunset-orange);
+    border-radius: 8px 0 0 0;
+  }
+  .img-corner-accent::after {
+    content: '';
+    @apply absolute -bottom-2 -right-2 w-12 h-12;
+    border-right: 3px solid var(--sunset-orange);
+    border-bottom: 3px solid var(--sunset-orange);
+    border-radius: 0 0 8px 0;
+  }
+
+  /* ---- Decorative Elements ---- */
+  .dot-pattern {
+    background-image: radial-gradient(circle, rgba(240, 96, 37, 0.15) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .line-pattern {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 8px,
+      rgba(240, 96, 37, 0.05) 8px,
+      rgba(240, 96, 37, 0.05) 16px
+    );
+  }
+
+  /* Warm gradient backgrounds */
+  .gradient-sunset {
+    background: linear-gradient(135deg, var(--sunset-orange) 0%, var(--sunset-rust) 100%);
+  }
+
+  .gradient-warm {
+    background: linear-gradient(180deg, #FFFFFF 0%, #FFF8F0 100%);
+  }
+
+  .gradient-sand {
+    background: linear-gradient(180deg, rgba(253, 205, 130, 0.1) 0%, rgba(253, 205, 130, 0.2) 100%);
+  }
+
+  /* Orange glow effect */
+  .glow-orange {
+    box-shadow: 0 0 60px 20px rgba(240, 96, 37, 0.15);
+  }
+
+  /* ---- Scroll Animations ---- */
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+  }
+
+  /* Staggered animation delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+}
+
+/* ============================================
+   UTILITY LAYER
+   ============================================ */
+@layer utilities {
+  /* Brand border radius */
+  .rounded-brand {
+    border-radius: var(--radius-brand);
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  /* Orange border utilities */
+  .border-orange {
+    border-color: var(--sunset-orange);
+  }
+
+  .border-orange-light {
+    border-color: rgba(240, 96, 37, 0.2);
+  }
+
+  /* Background utilities */
+  .bg-cream {
+    background-color: #FFF8F0;
+  }
+
+  .bg-sand-light {
+    background-color: rgba(253, 205, 130, 0.1);
+  }
+
+  /* Text utilities */
+  .text-sunset-orange {
+    color: var(--sunset-orange);
+  }
+
+  .text-sunset-rust {
+    color: var(--sunset-rust);
+  }
+
+  /* Hide scrollbar but allow scrolling */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ============================================
+   KEYFRAME ANIMATIONS
+   ============================================ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(240, 96, 37, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(240, 96, 37, 0.5); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Infinite scroll animations for carousels */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 40s linear infinite;
+}
+
+.animate-scroll-right {
+  animation: scroll-right 35s linear infinite;
+}
+
+.animate-scroll-left:hover,
+.animate-scroll-right:hover {
+  animation-play-state: paused;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 768px) {
+  :root {
+    --radius-brand: 24px;
+  }
+
+  .heading-section {
+    @apply text-3xl md:text-4xl;
+  }
+}
+
+/* ============================================
+   FOCUS & ACCESSIBILITY
+   ============================================ */
+:focus-visible {
+  outline: 2px solid var(--sunset-orange);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: rgba(240, 96, 37, 0.2);
+  color: var(--sunset-black);
+}
+
+/* ============================================
+   SHADCN/UI COMPATIBILITY
+   ============================================ */
+.dark {
+  --background: #0A0A0A;
+  --foreground: #FAFAFA;
+  --card: #0A0A0A;
+  --card-foreground: #FAFAFA;
+  --popover: #0A0A0A;
+  --popover-foreground: #FAFAFA;
+  --primary: #F06025;
+  --primary-foreground: #FFFFFF;
+  --secondary: #1A1A1A;
+  --secondary-foreground: #FAFAFA;
+  --muted: #1A1A1A;
+  --muted-foreground: #A1A1A1;
+  --accent: #1A1A1A;
+  --accent-foreground: #FAFAFA;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #262626;
+  --input: #262626;
+  --ring: #F06025;
+}
